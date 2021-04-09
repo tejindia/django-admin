@@ -1,0 +1,69 @@
+<h4>Category</h4>
+
+<form action="" method="POST" id="productForm">
+    {% csrf_token %}
+    <div>
+        <label for="">Product Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+
+    <div>
+        <label for="">Short Description</label>
+        <input type="text" name="short_description">
+    </div>
+
+    <div>
+        <label for="">Long Description</label>
+        <input type="text" name="long_description">
+    </div>
+
+
+    <div>
+        <label for="">Discount</label>
+        <input type="text" name="discount">
+    </div>
+
+
+    <div>
+        <label for="">Price</label>
+        <input type="text" name="price">
+    </div>
+
+
+    <div>
+        <label for="">Rating</label>
+        <input type="text" name="rating">
+    </div>
+
+
+    <div>
+        <label for="">Qty</label>
+        <input type="text" name="qty">
+    </div>
+
+
+    <div>
+        <label for="">Category</label>
+        <select name="category">
+            {% for category in categoryList %}
+                <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <button type="submit">Save</button>
+    </div>
+
+</form>
+
+
+<script>
+    document.getElementById("productForm").addEventListener("submit", (e) => {
+        e.preventDefault(); 
+
+        
+
+        this.submit(); 
+    })
+</script>

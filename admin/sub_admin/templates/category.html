@@ -1,0 +1,47 @@
+<h4>Category</h4>
+{% for message in messages %}
+
+{{message}}
+
+{% endfor %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="">Category Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+
+    <div>
+        <label for="">Rate</label>
+        <input type="number" name="rate" id="rate">
+    </div>
+
+    <div>
+        <input type="submit" value="Save">
+    </div>
+
+</form>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Created At</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for category in categoryList %}
+
+        <tr>
+            <td>{{category.name}}</td>
+            <td>{{category.created_at}}</td>
+        </tr>
+        
+        {% endfor %}
+    
+    </tbody>
+
+</table>
